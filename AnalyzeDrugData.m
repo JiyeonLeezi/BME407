@@ -13,8 +13,8 @@ iIn = 500 * rand(nPts, 1);
 gOut=0*gIn;
 iOut=0*iIn;
 
-%Simulate all 20 trials for the specified Subj group
-    for i=1:nPts
+% Simulate all 20 trials for the specified Subj group
+for i=1:nPts
     % Simulink model function
     [gOut(i),iOut(i)]=CollectDrugData(gIn(i),iIn(i),Subj,Drug);
 end
