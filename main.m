@@ -5,8 +5,8 @@ clear; clc;
 % Run the experiment for Group 0 (Asymptomatic)
 fprintf('Running simulations for Group 0...\n');
 tbl_asym = AnalyzeDrugData(0, 0);
-% Run the experiment for Group 1 (Type I Diabetes)
 
+% Run the experiment for Group 1 (Type I Diabetes)
 fprintf('Running simulations for Group 1...\n');
 tbl_type1 = AnalyzeDrugData(1, 0);
 
