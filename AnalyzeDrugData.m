@@ -1,17 +1,23 @@
-function tbl=AnalyzeDrugData(Subj,Drug);
+%% BME 407 HW2 Group7: Experiment Runner Script
+%% Dara Detwongya, Judy Kim, Jiyeon Lee
+clear; clc;
 
-%% Generate data
-nPts=20;
+% Run the experiment for Group 0 (Asymptomatic)
+fprintf('Running simulations for Group 0...\n');
+tbl_asym = AnalyzeDrugData(0, 0);
+% Run the experiment for Group 1 (Type I Diabetes)
 
-%gIn=  %%Determine inputs based on scenario; update and uncomment
-%iIn=  %%Determine inputs based on scenario; update and uncomment
+fprintf('Running simulations for Group 1...\n');
+tbl_type1 = AnalyzeDrugData(1, 0);
 
-gOut=0*gIn; %reserve space in proper format
-iOut=0*iIn;
+% Run the experiment for Group 2 (Type II Diabetes)
+fprintf('Running simulations for Group 2...\n');
+tbl_type2 = AnalyzeDrugData(2, 0);
 
-%Simulate all trials
-for i=1:nPts
-    [gOut(i),iOut(i)]=CollectDrugData(gIn(i),iIn(i),Subj,Drug);
-end
+% Combine all three groups into one table contianing 60 data points
+tbl_total = [tbl_asym; tbl_type1; tbl_type2];
 
-tbl=table(gIn, iIn, gOut, iOut);
+% Save the final 60-point table to a CSV file for Python
+writetable(tbl_total, 'diabetes_data.csv');
+
+fprintf('Successfully created 60-point dataset: diabetes_data.csv\n');
